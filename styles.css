@@ -1,0 +1,96 @@
+/*Q2-5*/
+body{
+    color:#E9E9E9;
+    font-family:'Cardo', serif;
+    font-size:20;
+    background-color:#222930;
+}
+
+/*Q2-1 Header*/
+#nameHeader{
+    color: #E9E9E9;
+    font-size:60;
+    text-align:center;
+    font-family:'Oswald', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0,0,0,.1),
+        0 0 5px rgba(0,0,0,.1),
+        0 1px 3px rgba(0,0,0,.3),
+        0 3px 5px rgba(0,0,0,.2),
+        0 5px 10px rgba(0,0,0,.25),
+        0 10px 10px rgba(0,0,0,.2),
+        0 20px 20px rgba(0,0,0,.15);
+}
+
+/*Handles the blue words between white words */
+.blueText{
+    color:#4EB1BA;
+}
+
+/*Q2-5 Headers in the text*/
+.textHeaders{
+    font-family:'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size:30;
+}
+
+/*Q2-5 Responsibilities header*/
+.responsibilities{
+    font-style:italic;
+    font-family:'Oswald', sans-serif;
+    text-transform: uppercase;
+    color:#4EB1BA;
+}
+
+
+/*Q2-2, Q2-3 Centering the div, making it a column, making it take up only 60% of page*/
+#photoAndWorkContent{
+    max-width:60%;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/*Q2-4 Displays pictures in a row*/
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 5px;
+}
+
+/* Top Navigation Bar*/
+.topnav {
+    background-color: #4EB1BA;
+    overflow: hidden;
+    display:flex;
+    justify-content: space-around;
+}
+.topnav a {
+    float: left;
+    color: #E9E9E9;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    display:flex;
+    justify-content:space-between;
+    font-family:'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+.topnav a:hover {
+    background-color: #E9E9E9;
+    color: black;
+}
+.topnav a.active {
+    background-color: #4EB1BA;
+    color: #E9E9E9;
+}
