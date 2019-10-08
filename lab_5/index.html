@@ -287,10 +287,12 @@
 
                 var old_list = document.getElementsByClassName("instructions");
                 var new_list = document.createElement('ol');
+                
                 for (let x = 0; x < 50; x++){
                     var new_item = document.createElement('li'); 
-                    var random_num = json[Math.floor((Math.random() * countries.length))].name; 
-                    new_item.innerHTML = random_num;
+                    var random_num = Math.floor(Math.random() * countries.length) + 1;
+                    var selected_country = json[random_num].name; 
+                    new_item.innerHTML = selected_country;
                     new_list.appendChild(new_item);
                 }
                 old_list[0].innerHTML = "";
