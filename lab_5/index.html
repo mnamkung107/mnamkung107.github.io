@@ -13,7 +13,7 @@
                 <!--<button class="button" onclick="loadData()">Load Some JSON</button>-->
                 <button class="button" onclick="getCountries()">Click me to replace list entries</button>
                 <div class="content">
-                    <ol class="instructions">
+                    <ul class="instructions">
                         <li>Delete and re-clone the class repository</li>
                         <li>Open <span class="code">lab_5_json.html</span> in your browser</li>
                         <li>Open your developer tools and look at the logged data</li>
@@ -26,7 +26,7 @@
                                 <li>Randomize which fifty countries are displayed on load</li>
                             </ol>
                         </li>
-                    </ol>
+                    </ul>
                 </div>
                 <div class="footer"></div>
             </div>
@@ -280,25 +280,37 @@
             ]
             console.log("List of countries in the world", countries);
 
+            sessionStorage.setItem("json_item", JSON.stringify(countries));
+
             function getCountries(){
-                sessionStorage.setItem("json_item", JSON.stringify(countries));
                 const str = sessionStorage.getItem("json_item");
                 const json = JSON.parse(str);
-
                 var old_list = document.getElementsByClassName("instructions");
                 var new_list = document.createElement('ol');
-                
+                const numArray = [];
+                //removing duplicates random numbers
+                while(numArray.length < 50){
+                    const selectNumber = getRandomIntInclusive(0, 242);
+                    if(numArray.indexOf(selectNumber) == -1){
+                        numArray.push(selectNumber);
+                    }
+                }
+                //filling the list with random countries
                 for (let x = 0; x < 50; x++){
                     var new_item = document.createElement('li'); 
-                    var random_num = Math.floor(Math.random() * countries.length) + 1;
-                    console.log(random_num);
-                    var selected_country = json[random_num].name; 
+                    var selected_country = json[numArray[x]].name;
                     new_item.innerHTML = selected_country;
-                    
                     new_list.appendChild(new_item);
                 }
+                //replacing the old HTML with the new HTML
                 old_list[0].innerHTML = "";
                 old_list[0].appendChild(new_list);
+            }
+
+            function getRandomIntInclusive(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min + 1)) + min; 
             }
 
         </script>
