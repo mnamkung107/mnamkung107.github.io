@@ -24,9 +24,7 @@
                 countries.innerHTML="";
                 fetch('ajax_sample.json')
                     .then(res => res.json())
-                    //.then(res => res.map(c => c.code))
-                    .then(res => res.map(c => c.name))
-                    //.then(codes => {
+                    .then(res => res.map(c => c.name + ", " + c.code))
                         .then(names =>
                         {
                         const numArray = [];
