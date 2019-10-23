@@ -11,41 +11,45 @@
             <div class="wrapper">
                 <div class="header">Test AJAX page</div>
                 <button class="button" onclick="loadData()">Load Some JSON</button>
-                <div class="content"></div>
+                <div class="content">
+                    <ol class="instructions"></ol>
+                </div>
                 <div class="footer"></div>
             </div>
         </div>
         <script>
+
             function loadData() {
+                const countries = document.querySelector('.instructions');
+                countries.innerHTML="";
                 fetch('ajax_sample.json')
                     .then(res => res.json())
-                    .then(res => res.map(c => c.code))
-                    .then(codes => {
-                        var old_list = document.getElementsByClassName("content");
-                        var new_list = document.createElement('ol');
+                    //.then(res => res.map(c => c.code))
+                    .then(res => res.map(c => c.name))
+                    //.then(codes => {
+                        .then(names =>
+                        {
                         const numArray = [];
                         while(numArray.length < 15){
                             const selectNumber = getRandomIntInclusive(0, 242);
                             if(numArray.indexOf(selectNumber) == -1){
-                            numArray.push(selectNumber);}
+                                numArray.push(selectNumber);}
                                 }
                             for (let x = 0; x < 15; x++){
                                 var new_item = document.createElement('li'); 
-                                var selected_country = numArray[x].name;
-                                new_item.innerHTML = selected_country;
-                                new_list.appendChild(new_item);
+                                var selected_country = names[numArray[x]];
+                                new_item.innerText = selected_country;
+                                countries.appendChild(new_item);
                 }
-                            old_list[0].innerHTML = "";
-                            old_list[0].appendChild(new_list);
-            });
-            }
-
+            })
             function getRandomIntInclusive(min, max) {
                 min = Math.ceil(min);
                 max = Math.floor(max);
                 return Math.floor(Math.random() * (max - min + 1)) + min; 
             }
+            }
         </script>
     </body>
 
-</html>
+</html> 
+ 
