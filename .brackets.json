@@ -1,0 +1,5 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Applications/Splunk/share/splunk/search_mrsparkle/exposed/js/contrib/ace-editor/mode-text.js"
+    ]
+}
